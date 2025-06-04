@@ -1,0 +1,75 @@
+---
+import Block from '@components/Block.astro';
+import { Image } from 'astro:assets';
+
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('community', 'community');
+if (!entry) {
+  throw new Error('Could not find blog post 1');
+}
+const { Content } = await render(entry);
+---
+
+<style lang="scss">
+  .compass-logos {
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    max-width: 700px;
+    
+    .logo {
+      width: calc(100% / 3);
+      img {
+        padding:20px;
+      }
+    }
+  }
+
+    @media (max-width: 700px) {
+    .compass-logos {
+      display: flex;
+      flex-direction: column;
+          .logo {
+      width: 180px
+          }
+    }
+  }
+</style>
+
+<Block title={entry.data.title}>
+  <Content />
+  <div class="compass-logos">
+    <div class="logo">
+      <Image src={entry.data.allinWayraLogo} width={180} alt="Allin Wayra Logo" />
+    </div>
+    <div class="logo">
+      <Image src={entry.data.cleanAirAsiaLogo} width={180} alt="Clean Air Asia Logo" />
+    </div>
+        <div class="logo">
+      <Image
+        src={entry.data.eciLogo}
+        width={180}
+        alt="ECI Logo"
+      />
+    </div>
+    <div class="logo">
+      <Image
+        src={entry.data.scicanLogo}
+        width={180}
+        alt="SciCAN Logo"
+      />
+    </div>
+    <div class="logo">
+      <Image
+        src={entry.data.ygpeLogo}
+        width={180}
+        alt="YGPE Logo"
+      />
+    </div>
+
+  </div>
+</Block>

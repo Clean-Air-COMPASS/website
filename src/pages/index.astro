@@ -1,11 +1,59 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import Layout from '@layouts/Layout.astro';
+import HubIcon from '@assets/svg/hub.svg';
+import AirIcon from '@assets/svg/air.svg';
+import CodeIcon from '@assets/svg/code.svg';
+import Hero from '@components/Hero.astro';
+import Block from '@components/Block.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('origin', 'origin');
+if (!entry) {
+  throw new Error('Could not find content');
+}
+const { Content } = await render(entry);
+
+const description = 'A collaborative, community-informed initiative to develop an open-source data management system for air quality measurement data.'
+
 ---
 
-<Layout>
-	<Welcome />
+<style lang="scss">
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    margin: 60px 20px;
+  }
+
+  @media (max-width: 1000px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<Layout title="Clean Air COMPASS" description={description} ogImage="og/home.png"> 
+	<Hero />
+  <div class="grid">
+    <Card title="Air quality">
+      <AirIcon slot="icon" height={48} width={48} fill="#064789" />
+	  <p slot="content">99% of the world breathes unhealthy air, causing 1 in 8 premature deaths. Vulnerable populations face magnified risks from this leading global health threat.</p>
+    </Card>
+
+    <Card title="Open-source">
+      <CodeIcon slot="icon" height={48} width={48} fill="#064789" />
+      <p slot="content">A customizable open-source data management system fosters collaboration, reduces redundancy, and enhances accessibility, empowering global air quality efforts</p>
+    </Card>
+    <Card title="Community-informed">
+      <HubIcon slot="icon" height={48} width={48} fill="#064789" />
+      <p slot="content">A collaborative community of practice fosters shared learning and accelerates progress. By pooling expertise and resources from around the world, it helps overcome data management hurdles, ensuring more effective use of air quality information globally.</p>
+    </Card>
+  </div>
+  <Block title="Project origin">
+    <Content />
+  </Block>
 </Layout>

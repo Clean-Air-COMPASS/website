@@ -1,0 +1,55 @@
+---
+
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('hero', 'hero');
+if (!entry) {
+  throw new Error('Could not find content');
+}
+const { Content } = await render(entry);
+
+
+
+---
+
+<style lang="scss">
+
+    @use '../styles/colors.scss';
+
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        height: 350px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 24px;
+
+
+        &__title {
+            font-size: 3rem;
+            font-family: 'Oxygen', sans-serif;
+            color: colors.$primary;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+            width: 70%;
+            text-wrap: balance;
+        }
+    }
+</style>
+
+
+<section class="hero">
+    <h1 class="hero__title">{entry.data.title}</h1>
+    <div class="content">
+        <Content />
+    </div>
+    
+</section>
+

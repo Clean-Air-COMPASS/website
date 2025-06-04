@@ -1,0 +1,56 @@
+---
+import Block from '@components/Block.astro';
+import { Image } from 'astro:assets';
+
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('whoweare', 'whoweare');
+if (!entry) {
+  throw new Error('Could not find blog post 1');
+}
+const { Content } = await render(entry);
+---
+
+<style>
+  .leads-logos {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .leads-logos {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<Block title={entry.data.title}>
+  <Content />
+  <div class="leads-logos">
+    <Image
+      src={entry.data.nrdcLogo}
+      width={150}
+      alt="NRDC Logo"
+      loading="eager"
+      priority={true}
+    />
+    <Image
+      src={entry.data.openaqLogo}
+      width={150}
+      alt="OpenAQ Logo"
+      loading="eager"
+      priority={true}
+    />
+    <Image
+      src={entry.data.sonomaTechLogo}
+      width={150}
+      alt="Sonoma Tech Logo"
+      loading="eager"
+      priority={true}
+    />
+  </div>
+</Block>

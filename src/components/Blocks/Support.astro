@@ -1,0 +1,17 @@
+---
+import Block from '@components/Block.astro';
+
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('support', 'support');
+if (!entry) {
+  throw new Error('Could not find content');
+}
+const { Content } = await render(entry);
+---
+
+
+
+<Block title={entry.data.title}>
+  <Content />
+</Block>

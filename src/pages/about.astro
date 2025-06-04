@@ -1,0 +1,15 @@
+---
+import Community from '@components/Blocks/Community.astro';
+import Roadmap from '@components/Blocks/Roadmap.astro';
+import WhoWeAre from '@components/Blocks/WhoWeAre.astro';
+import Layout from '@layouts/Layout.astro';
+
+
+const description = 'Learn more bout the Clean Air COMPASS initiative';
+---
+
+<Layout title="Clean Air COMPASS" description={description} ogImage="og/about.png"> 
+  <WhoWeAre />
+  <Community /> 
+  <Roadmap />
+</Layout>

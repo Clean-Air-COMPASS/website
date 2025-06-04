@@ -1,0 +1,31 @@
+---
+import Block from '@components/Block.astro';
+import { getCollection } from 'astro:content';
+
+import { getEntry, render } from 'astro:content';
+
+const events = await getCollection('events');
+
+const entry = await getEntry('eventsIndex', 'events_index');
+if (!entry) {
+  throw new Error('Could not find content');
+}
+const { Content } = await render(entry);
+---
+
+<Block title={entry.data.title}>
+  <Content />
+  <ul>
+    {
+      events.map((o) => {
+        const { title, location, date, url } = o.data;
+        const label = url ? <a href={url}>{title}</a> : title;
+        return (
+          <li>
+            {label} - {location} {date}
+          </li>
+        );
+      })
+    }
+  </ul>
+</Block>

@@ -1,0 +1,15 @@
+---
+import Events from '@components/Blocks/Events.astro';
+import Participate from '@components/Blocks/Participate.astro';
+import Support from '@components/Blocks/Support.astro';
+
+import Layout from '@layouts/Layout.astro';
+const description = 'Participate in the Clean Air COMPASS initiative';
+
+---
+
+<Layout title="Clean Air COMPASS" description={description} ogImage="og/participate.png"> 
+    <Participate />
+    <Events />
+    <Support />
+</Layout>
