@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { title, description, ogImage } = Astro.props;
+---
+
+<style lang="scss">
+  @use '../styles/colors.scss';
+
+  * {
+    font-family: 'Oxygen', sans-serif;
+  }
+  .content {
+    background-color: white;
+    padding: 60px;
+    margin: 20px 20px;
+    max-width: 1000px;
+
+      
+  :global(h1) {
+    font-size: 2.5rem;
+    color: colors.$primary;
+    text-align: center;
+  }
+
+  :global(h2) {
+    color: colors.$primary;
+    text-align: center;
+  }
+
+  :global(h3) {
+    color: colors.$primary;
+    text-align: center;
+  }
+  }
+
+</style>
+
+<BaseLayout title={title} description={description} ogImage={ogImage}>
+  <div class="content">
+    <slot />
+  </div>
+</BaseLayout>

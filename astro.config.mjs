@@ -7,8 +7,8 @@ import purgecss from 'astro-purgecss';
 
 export default defineConfig({
   site: 'https://cleanaircompass.org',
-  experimental: {
-    responsiveImages: true,
+  image: {
+    responsiveStyles: true,
   },
   integrations: [sitemap(), purgecss()],
 });

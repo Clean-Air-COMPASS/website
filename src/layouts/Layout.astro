@@ -5,60 +5,26 @@ import 'src/assets/styles/main.scss';
 import '@fontsource/oxygen';
 import '@fontsource/oswald/300.css';
 import Head from '@components/Head.astro';
+import BaseLayout from './BaseLayout.astro';
 const { title, description, ogImage } = Astro.props;
-
 ---
 
-<!doctype html>
-<html lang="en">
-  <Head title={title}, description={description} ogImage={ogImage}/>
-  <body>
-    <Header />
-    <main class="main">
-      <div class="content">
-        <slot />
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout>
+  <div class="content">
+    <slot />
+  </div>
+</BaseLayout>
 
 <style lang="scss">
   @use '../styles/colors.scss';
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-  }
 
-  .main {
+  .content {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: colors.$secondary;
-    min-height: 100vh;
-              box-sizing: border-box;
-
-
-    .content {
-                box-sizing: border-box;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 1200px;
-      gap: 80px;
-      margin: 40px 0;
-    }
-  }
-
-
-  @media (max-width: 800px) {
-    .main {
-      
-            padding: 0 40px;
-    
-    }
-    
+    max-width: 1200px;
+    gap: 80px;
+    margin: 40px 0;
   }
 </style>

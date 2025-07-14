@@ -1,0 +1,17 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('charter', 'charter');
+if (!entry) {
+  throw new Error('Could not find charter');
+}
+const { Content } = await render(entry);
+
+const description = 'The Clean Air COMPASS Charter';
+---
+
+
+<ContentLayout title="Clean Air COMPASS Charter" description={description} ogImage="og/about.png"> 
+    <Content />
+</ContentLayout>

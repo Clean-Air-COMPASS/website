@@ -85,6 +85,15 @@ const support = defineCollection({
     }),
 });
 
+const charter = defineCollection({
+  loader: glob({ pattern: '*.md', base: 'src/content/charter' }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+    }),
+});
+
+
 export const collections = {
   whoweare,
   community,
@@ -94,5 +103,6 @@ export const collections = {
   eventsIndex,
   events,
   participate,
-  support
+  support,
+  charter
 };
