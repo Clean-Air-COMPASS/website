@@ -2,9 +2,7 @@
 title: How can I participate?
 ---
 
-If you are interested in learning more, participating in a stakeholder workshop, being an early adopter, or otherwise getting involved, please contact Sarah at selkotbeid@nrdc.org
-
-COMPASS core partners are holding stakeholder workshops June and July 2025 for the following geographies:
+COMPASS core partners are held stakeholder workshops June-August 2025 in the following geographies and will hold workshops again in early 2026:
 
 * Africa
 * South/Southeast Asia

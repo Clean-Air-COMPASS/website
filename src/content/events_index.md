@@ -1,5 +1,5 @@
 ---
-title: Upcoming events
+title:  Events
 ---
 
-We are holding presentations or workshops at the following conferences:
+Past and future events include:
