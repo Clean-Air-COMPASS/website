@@ -4,7 +4,7 @@ import nodePath from 'node:path';
 const logoPath = nodePath.resolve(process.cwd(), 'src/assets/img/logo.png');
 
 
-export const { getStaticPaths, GET } = OGImageRoute({
+export const { getStaticPaths, GET } = await OGImageRoute({
   param: 'route',
   pages: {
    'home': {
