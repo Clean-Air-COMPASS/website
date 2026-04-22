@@ -1,4 +1,8 @@
 import { OGImageRoute } from 'astro-og-canvas';
+import nodePath from 'node:path';
+
+const logoPath = nodePath.resolve(process.cwd(), 'src/assets/img/logo.png');
+
 
 export const { getStaticPaths, GET } = OGImageRoute({
   param: 'route',
@@ -11,7 +15,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
      title: 'Clean Air COMPASS - About',
      description: 'Learn more bout the Clean Air COMPASS initiative',
    },
-      'participate': {
+   'participate': {
      title: 'Clean Air COMPASS - Participate',
      description: 'Participate in the Clean Air COMPASS initiative',
    }
@@ -21,27 +25,30 @@ export const { getStaticPaths, GET } = OGImageRoute({
     title: page.title,
     description: page.description,
     logo: {
-      path: './src/assets/img/logo.png',
+      path: logoPath,
     },
-    fonts: ["src/assets/fonts/Oxygen-Regular.ttf","src/assets/fonts/Oswald-VariableFont_wght.ttf"],
-      font: {
-        title: {
-          color: [0, 0, 0],
-          size: 55,
-          families: ["Oxygen"],
-          lineHeight: 1.3,
-        },
-        description: {
-          color: [0, 0, 0],
-          size: 35,
-          families: ["Oswald"],
-          lineHeight: 1.3,
-        },
+  fonts: [
+    nodePath.resolve(process.cwd(), '.astro/fonts/font-oxygen-400-normal-latin-b53f73fd2a0179d1.woff2'),
+    nodePath.resolve(process.cwd(), '.astro/fonts/font-oswald-300-normal-latin-5916d05bd93f23e0.woff2'),
+  ],
+    font: {
+      title: {
+        color: [0, 0, 0],
+        size: 55,
+        families: ["Oxygen"],
+        lineHeight: 1.3,
       },
+      description: {
+        color: [0, 0, 0],
+        size: 35,
+        families: ["Oswald"],
+        lineHeight: 1.3,
+      },
+    },
     bgGradient: [[255,255,255]],
     border: {
-        width: 20,
-        color: [6,71,137]
+      width: 20,
+      color: [6,71,137]
     }
   }),
 });
