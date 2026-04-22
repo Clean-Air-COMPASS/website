@@ -17,20 +17,36 @@ const { title } = Astro.props;
 
     &__title {
     font-size: 32px;
-      font-family: 'Oxygen', sans-serif;
+      font-family: var(--font-oxygen);
       color: colors.$primary;
+
     }
 
     &__body {
-      font-family: 'Oswald', sans-serif;
+      font-family: var(--font-oswald);
       font-size: 20px;
       padding: 10px 40px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
 
-      .icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: colors.$primary;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+
+      :global(svg) {
+        width: 28px;
+        height: 28px;
+        fill: currentColor;
       }
+    }
     }
   }
 </style>

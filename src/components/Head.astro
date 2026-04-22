@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 const { title, description, ogImage } = Astro.props;
 const permalink = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageURL = new URL(ogImage, Astro.site).href;
@@ -9,6 +10,9 @@ const ogImageURL = new URL(ogImage, Astro.site).href;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-oswald" />
+    <Font cssVariable="--font-oxygen" />
+
     <title>{title ?? 'Clean Air COMPASS'}</title>
     <meta name="title" content='Clean Air COMPASS' />
     <meta name="description" content={description} />

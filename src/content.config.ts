@@ -57,7 +57,7 @@ const events = defineCollection({
       title: z.string(),
       location: z.string(),
       date: z.string(),
-      url: z.string().url()
+      url: z.url()
     }),
 });
 
