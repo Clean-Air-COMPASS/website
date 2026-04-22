@@ -6,6 +6,9 @@ import sitemap from '@astrojs/sitemap';
 import purgecss from 'astro-purgecss';
 
 export default defineConfig({
+  build: {
+    concurrency: 1,
+  },
   site: 'https://cleanaircompass.org',
   image: {
     responsiveStyles: true,
