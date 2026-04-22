@@ -27,10 +27,10 @@ export const { getStaticPaths, GET } = await OGImageRoute({
     logo: {
       path: logoPath,
     },
-  fonts: [
-    nodePath.resolve(process.cwd(), '.astro/fonts/font-oxygen-400-normal-latin-b53f73fd2a0179d1.woff2'),
-    nodePath.resolve(process.cwd(), '.astro/fonts/font-oswald-300-normal-latin-5916d05bd93f23e0.woff2'),
-  ],
+    fonts: [
+      'https://fonts.gstatic.com/s/oxygen/v15/2sDfZG1Wl4LcnbuKjk0m.woff2',
+      'https://fonts.gstatic.com/s/oswald/v53/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvsUZiYySUhiCXAA.woff2',
+    ],
     font: {
       title: {
         color: [0, 0, 0],
