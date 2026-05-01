@@ -1,33 +1,51 @@
 ---
-import { Font } from "astro:assets";
+import { Font } from 'astro:assets';
 const { title, description, ogImage } = Astro.props;
 const permalink = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageURL = new URL(ogImage, Astro.site).href;
 ---
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <Font cssVariable="--font-oswald" />
-    <Font cssVariable="--font-oxygen" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <Font cssVariable="--font-oswald" />
+  <Font cssVariable="--font-oxygen" />
 
-    <title>{title ?? 'Clean Air COMPASS'}</title>
-    <meta name="title" content='Clean Air COMPASS' />
-    <meta name="description" content={description} />
+  <title>{title ?? 'Clean Air COMPASS'}</title>
+  <meta name="title" content="Clean Air COMPASS" />
+  <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={permalink} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageURL} />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={permalink} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={permalink} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
-  </head>
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={permalink} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImageURL} />
+
+  {
+    import.meta.env.PROD && (
+      <>
+        <script
+          is:inline
+          async
+          src="https://plausible.io/js/pa-XkXAY8W92me7ljeKbAeGO.js"
+        />
+        <script is:inline>
+          window.plausible=window.plausible||function()
+          {(plausible.q = plausible.q || []).push(arguments)}
+          ,plausible.init=plausible.init||function(i){(plausible.o = i || {})};
+          plausible.init()
+        </script>
+      </>
+    )
+  }
+</head>
