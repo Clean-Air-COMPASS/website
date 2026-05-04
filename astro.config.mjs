@@ -9,6 +9,14 @@ export default defineConfig({
   build: {
     concurrency: 1,
   },
+  security: {
+    csp: {
+      directives: [
+        "connect-src 'self' https://plausible.io",
+        "font-src 'self'",
+      ]
+    }
+  },
   site: 'https://cleanaircompass.org',
   image: {
     responsiveStyles: true,
