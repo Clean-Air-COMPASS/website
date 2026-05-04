@@ -12,8 +12,13 @@ export default defineConfig({
   security: {
     csp: {
       directives: [
-        "connect-src 'self' https://plausible.io",
-        "font-src 'self'",
+      "default-src 'none'",
+      "connect-src 'self' https://plausible.io",
+      "font-src 'self'",
+      "img-src 'self'",
+      "manifest-src 'self'",
+      "object-src 'none'",
+      "base-uri 'none'",
       ]
     }
   },
